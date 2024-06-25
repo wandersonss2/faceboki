@@ -6,7 +6,7 @@ import styles from './HomeScreenStyles';
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>SocialApp</Text>
+      <Text style={styles.title}>Welcome to SocialApp</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Login')}

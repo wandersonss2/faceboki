@@ -3,8 +3,14 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './ProfileScreenStyles';
 
-const ProfileScreen = ({ route, navigation }) => {
+const ProfileScreen = ({ route, navigation, setIsLoggedIn }) => {
   const { name, email, profileImage } = route.params || {};
+
+  const handleLogout = () => {
+    // Implement logout logic here
+    setIsLoggedIn(false);
+    navigation.replace('Home');
+  };
 
   return (
     <View style={styles.container}>
@@ -30,9 +36,9 @@ const ProfileScreen = ({ route, navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, styles.backButton]}
-        onPress={() => navigation.navigate('Home')}
+        onPress={handleLogout}
       >
-        <Text style={styles.buttonText}>Back to Home</Text>
+        <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>
     </View>
   );

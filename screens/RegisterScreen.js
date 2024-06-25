@@ -5,7 +5,7 @@ import Modal from 'react-native-modal';
 import { launchImageLibrary } from 'react-native-image-picker';
 import styles from './RegisterScreenStyles';
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation, setIsLoggedIn }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,17 +24,17 @@ const RegisterScreen = ({ navigation }) => {
 
   const handleRegister = () => {
     // Simulate API call
-    const isSuccess = true; // Change to a real API call
+    const isSuccess = Math.random() > 0.5; // Simulate success or failure
     if (isSuccess) {
       setModalMessage('Registration Successful!');
       setIsSuccess(true);
       setIsModalVisible(true);
       setTimeout(() => {
         setIsModalVisible(false);
-        navigation.navigate('Profile', {
-          name,
-          email,
-          profileImage,
+        setIsLoggedIn(true);
+        navigation.replace('App', {
+          screen: 'Profile',
+          params: { name, email, profileImage },
         });
       }, 2000);
     } else {

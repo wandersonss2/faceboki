@@ -1,17 +1,16 @@
 // screens/LoginScreen.js
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
-import styles from './loginScreenStyles';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import styles from './loginScreenStyles';  // Certifique-se de que o nome do arquivo e o caminho estão corretos
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation, setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    navigation.navigate('Profile');
+    // Simulate login logic here
+    setIsLoggedIn(true);
+    navigation.replace('App');
   };
 
   return (
